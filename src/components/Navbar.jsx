@@ -1,9 +1,11 @@
 "use client";
 
-import { Dropdown } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
-  const isLogin = true;
+  const isLogin = false;
   const name = "محمدرضا";
+  const navigate = useNavigate();
   return (
     <div className="w-screen h-16 sm:h-20 bg-primary py-3 space-x-5 fixed ">
       {(isLogin && (
@@ -19,6 +21,9 @@ const Navbar = () => {
           <button
             type="button"
             className="text-secondary h-full w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg text-base px-5 py-2.5 text-center   float-right"
+            onClick={() => {
+              navigate("/editusers");
+            }}
           >
             {" "}
             خروج{" "}
@@ -26,6 +31,9 @@ const Navbar = () => {
           <button
             type="button"
             className="text-secondary h-full  w-3/12 sm:w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg text-xs sm:text-base px-5 py-2.5 text-center  float-right"
+            onClick={() => {
+              navigate("/editusers");
+            }}
           >
             {" "}
             ویرایش کاربران{" "}
@@ -33,6 +41,9 @@ const Navbar = () => {
           <button
             type="button"
             className="text-secondary h-full w-3/12 sm:w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg test-xs sm:text-base px-5 py-2.5 text-center mx-2  float-right"
+            onClick={() => {
+              navigate("/deleteusers");
+            }}
           >
             {" "}
             حذف کاربران{" "}
@@ -44,6 +55,9 @@ const Navbar = () => {
             <button
               type="button"
               className="text-secondary w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg text-sm px-5 py-2.5 text-center mx-2  float-right"
+              onClick={() => {
+                navigate("/register");
+              }}
             >
               {" "}
               ثبت نام{" "}
@@ -52,6 +66,9 @@ const Navbar = () => {
             <button
               type="button"
               className="text-secondary w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg text-sm px-5 py-2.5 text-center mx-2  float-right"
+              onClick={() => {
+                navigate("/login");
+              }}
             >
               {" "}
               ورود{" "}
