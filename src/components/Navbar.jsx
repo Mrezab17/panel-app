@@ -5,10 +5,10 @@ const Navbar = () => {
   const isLogin = true;
   const name = "محمدرضا";
   return (
-    <div className="w-screen h-16 sm:h-20 bg-primary py-3 space-x-5  ">
+    <div className="w-screen h-16 sm:h-20 bg-primary py-3 space-x-5 fixed ">
       {(isLogin && (
         <>
-          <div className="text-secondary h-full w-3/12 sm:w-2/12 text-sm sm:text-base px-5 py-2.5 text-center  float-left cursor-none">
+          <div className="text-secondary h-full w-2/12 text-sm sm:text-base px-2 py-2.5 text-center  float-left cursor-none">
             {""}
             پنل مدیریت {""}
           </div>
@@ -18,24 +18,24 @@ const Navbar = () => {
           </div>
           <button
             type="button"
-            className="text-secondary h-full w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary font-bold rounded-lg text-base px-5 py-2.5 text-center   float-right"
+            className="text-secondary h-full w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg text-base px-5 py-2.5 text-center   float-right"
           >
             {" "}
             خروج{" "}
           </button>
           <button
             type="button"
-            className="text-secondary h-full  w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary font-bold rounded-lg text-base px-5 py-2.5 text-center   float-right"
+            className="text-secondary h-full  w-3/12 sm:w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg text-xs sm:text-base px-5 py-2.5 text-center  float-right"
           >
             {" "}
-            خروج{" "}
+            ویرایش کاربران{" "}
           </button>
           <button
             type="button"
-            className="text-secondary h-full w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary font-bold rounded-lg text-base px-5 py-2.5 text-center mx-2  float-right"
+            className="text-secondary h-full w-3/12 sm:w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg test-xs sm:text-base px-5 py-2.5 text-center mx-2  float-right"
           >
             {" "}
-            خروج{" "}
+            حذف کاربران{" "}
           </button>
         </>
       )) ||
@@ -43,7 +43,7 @@ const Navbar = () => {
           <>
             <button
               type="button"
-              className="text-secondary w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary font-bold rounded-lg text-sm px-5 py-2.5 text-center mx-2  float-right"
+              className="text-secondary w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg text-sm px-5 py-2.5 text-center mx-2  float-right"
             >
               {" "}
               ثبت نام{" "}
@@ -51,7 +51,7 @@ const Navbar = () => {
 
             <button
               type="button"
-              className="text-secondary w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary font-bold rounded-lg text-sm px-5 py-2.5 text-center mx-2  float-right"
+              className="text-secondary w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg text-sm px-5 py-2.5 text-center mx-2  float-right"
             >
               {" "}
               ورود{" "}
