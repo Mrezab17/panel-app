@@ -8,6 +8,9 @@ import Loading from "./Loading";
 const Login = lazy(() => import("../pages/Login"));
 const Register = lazy(() => import("../pages/Register"));
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
+const DeleteUsers = lazy(() => import("../pages/DeleteUsers"));
+const EditUsers = lazy(() => import("../pages/EditUsers"));
+const EditUser = lazy(() => import("../pages/EditUser"));
 const isLogin = false;
 
 const Content = () => {
@@ -16,7 +19,7 @@ const Content = () => {
       <BrowserRouter>
         <div className="w-screen h-screen bg-secondary ">
           <Navbar />
-          {isLogin ? (
+          {!isLogin ? (
             <Routes>
               <Route
                 exact
@@ -34,8 +37,9 @@ const Content = () => {
                 path="/"
                 element={<Navigate to="/login" replace />}
               />
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/register" element={<Register />} />
+              <Route exact path="/deleteusers" element={<DeleteUsers />} />
+              <Route exact path="/editusers" element={<EditUsers />} />
+              <Route exact path="/edituser/:id" element={<EditUser />} />
               <Route path="/*" element={<ErrorPage error={404} />} />
             </Routes>
           )}
