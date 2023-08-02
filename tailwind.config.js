@@ -8,6 +8,9 @@ module.exports = {
   theme: {
     extend: {
       colors: { primary: "#0d1b2a", secondary: "#e0e1dd", tertiary: "#778da9" },
+      backgroundImage: {
+        login: "url('./src/assets/Login.jpg')",
+      },
     },
   },
   plugins: [require("flowbite/plugin")],
