@@ -1,12 +1,12 @@
-import React, { useState, useEffect, createRef } from "react";
+import React, { createRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
-import { Formik, Field, ErrorMessage } from "formik";
+import { Formik } from "formik";
 import * as Yup from "yup";
 
 const TEST_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   const initialValues = {
     username: "",
     password: "",
@@ -16,12 +16,10 @@ const LoginForm = () => {
   const LoginSchema = Yup.object().shape({
     username: Yup.string().required("نام کاربری را وارد کنید"),
     password: Yup.string().required("رمز ورود را وارد کنید"),
-    recaptcha: Yup.string().required("عدد مقابل را وارد کنید"),
   });
 
   const submitForm = (values) => {
-    reCaptchaRef.current.execute();
-    console.log("Form Sub");
+    props.submitHandler(values);
   };
   return (
     <div className="h-full w-full sm:w-1/2 bg-white flex flex-column items-center justify-center">
@@ -29,6 +27,8 @@ const LoginForm = () => {
         initialValues={initialValues}
         onSubmit={submitForm}
         validationSchema={LoginSchema}
+        validateOnChange={false}
+        validateOnBlur={false}
       >
         {(formik) => {
           const {
@@ -91,25 +91,20 @@ const LoginForm = () => {
               </div>
               <div className="w-full flex flex-row row-span-1 h-20 justify-center">
                 <ReCAPTCHA
-                  className=" basis-5/12 pl-3 rounded"
-                  sitekey="6Le2nREUAAAAALYuOv7X9Fe3ysDmOmghtj0dbCKW"
-                  render="explicit"
-                  theme="light"
+                  ref={reCaptchaRef}
+                  sitekey={TEST_SITE_KEY}
+                  onChange={(value) => {
+                    props.setFieldValue("recaptcha", value);
+                    props.setSubmitting(false);
+                  }}
                 />
-              </div>
-              <div className="w-full flex flex-row row-span-1 h-10 justify-center">
-                {errors.recaptcha && touched.recaptcha && (
-                  <div className=" w-5/12 pl-3 text-red-600 float-left inline-block">
-                    {errors.recaptcha}
-                  </div>
-                )}
               </div>
 
               <div className="w-full flex flex-row row-span-1 h-10 justify-center">
                 <input
                   type="submit"
                   className="bg-green-500 basis-2/12 rounded-md cursor-pointer hover:bg-green-700 hover:basis-3/12"
-                  disabled={!(dirty && isValid)}
+                  disabled={props.isSubmitting}
                   value={"وارد شو"}
                 />
               </div>

@@ -1,6 +1,8 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import { Suspense, lazy, useState, useEffect } from "react";
+import { Suspense, lazy } from "react";
+
+import { useSelector } from "react-redux";
 
 import Navbar from "./Navbar";
 import Loading from "./Loading";
@@ -11,9 +13,9 @@ const ErrorPage = lazy(() => import("../pages/ErrorPage"));
 const DeleteUsers = lazy(() => import("../pages/DeleteUsers"));
 const EditUsers = lazy(() => import("../pages/EditUsers"));
 const EditUser = lazy(() => import("../pages/EditUser"));
-const isLogin = false;
 
 const Content = () => {
+  const isLogin = useSelector((state) => state.isLogin.value);
   return (
     <Suspense fallback={<Loading />}>
       <BrowserRouter>
@@ -35,7 +37,7 @@ const Content = () => {
               <Route
                 exact
                 path="/"
-                element={<Navigate to="/login" replace />}
+                element={<Navigate to="/editusers" replace />}
               />
               <Route exact path="/deleteusers" element={<DeleteUsers />} />
               <Route exact path="/editusers" element={<EditUsers />} />

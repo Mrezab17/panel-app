@@ -1432,10 +1432,6 @@ input:checked + .toggle-bg {
   height: 100vh;
 }
 
-.h-32 {
-  height: 8rem;
-}
-
 .max-h-\[90vh\] {
   max-height: 90vh;
 }
@@ -1813,18 +1809,6 @@ input:checked + .toggle-bg {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-
-.space-y-7 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.75rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.75rem * var(--tw-space-y-reverse));
-}
-
-.space-y-3 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
 }
 
 .divide-x > :not([hidden]) ~ :not([hidden]) {
@@ -2841,20 +2825,12 @@ input:checked + .toggle-bg {
   padding-top: 2.5rem;
 }
 
-.pt-4 {
-  padding-top: 1rem;
-}
-
-.pt-5 {
-  padding-top: 1.25rem;
-}
-
-.pt-20 {
-  padding-top: 5rem;
-}
-
 .pt-36 {
   padding-top: 9rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .text-left {
