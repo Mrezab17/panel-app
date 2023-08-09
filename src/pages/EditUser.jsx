@@ -1,10 +1,30 @@
-import LoginForm from "../components/LoginForm";
-const EditUser = () => {
-  const submitHandler = () => {};
+import { useParams } from "react-router-dom";
+import EditForm from "../components/EditForm";
+
+const EditUser = (props) => {
+  const { id } = useParams();
+  const list = [
+    {
+      id: 1,
+      name: "منوچهر ",
+      lname: "زارع",
+      username: "zare",
+      email: "test@example.com",
+      password: "123321",
+    },
+    {
+      id: 2,
+      name: "شاهپور",
+      lname: "محمودیه",
+      username: "shah",
+      email: "omid.kadivar@example.net",
+    },
+  ];
+
   return (
     <>
-      <div className="h-full w-full flex bg-red-400">
-        <div className="h-full w-1/2 hidden sm:flex sm:w-1/2   bg-cover bg-center px-10"></div>
+      <div className="h-full w-full flex bg-primary justify-center ">
+        <EditForm user={list[id - 1]} />
       </div>
     </>
   );
