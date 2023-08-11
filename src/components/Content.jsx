@@ -7,6 +7,7 @@ import { fetchUsersData, sendUsers } from "../store/usersActions";
 
 import Navbar from "./Navbar";
 import Loading from "./Loading";
+import { useEffect } from "react";
 
 const Login = lazy(() => import("../pages/Login"));
 const Register = lazy(() => import("../pages/Register"));
@@ -22,17 +23,12 @@ const Content = () => {
 
   //runs only Once
   useEffect(() => {
-    dispatch(fetchCartData());
+    dispatch(fetchUsersData());
   }, [dispatch]);
   //every time users Change posts new users
   useEffect(() => {
-    if (isInitial) {
-      isInitial = false;
-      return;
-    }
-
     if (users.changed) {
-      dispatch(sendCartData(users));
+      dispatch(sendUsers(users));
     }
   }, [users, dispatch]);
 

@@ -1,4 +1,4 @@
-import { usersActions } from "./cart-slice";
+import { replaceUsers } from "./usersSlice";
 import axios from "axios";
 const baseUrl = "/users.json";
 
@@ -16,7 +16,7 @@ export const fetchUsersData = () => {
     try {
       const fetchedUsersList = await fetchData();
       dispatch(
-        usersActions.replaceCart({
+        replaceCart({
           items: usersList || [],
         })
       );
