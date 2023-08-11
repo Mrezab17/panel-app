@@ -2,7 +2,8 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import { Suspense, lazy } from "react";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsersData, sendUsers } from "../store/usersActions";
 
 import Navbar from "./Navbar";
 import Loading from "./Loading";
@@ -16,6 +17,25 @@ const EditUser = lazy(() => import("../pages/EditUser"));
 
 const Content = () => {
   const isLogin = useSelector((state) => state.isLogin.value);
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.users);
+
+  //runs only Once
+  useEffect(() => {
+    dispatch(fetchCartData());
+  }, [dispatch]);
+  //every time users Change posts new users
+  useEffect(() => {
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
+
+    if (users.changed) {
+      dispatch(sendCartData(users));
+    }
+  }, [users, dispatch]);
+
   return (
     <Suspense fallback={<Loading />}>
       <BrowserRouter>
