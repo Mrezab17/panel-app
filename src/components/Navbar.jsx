@@ -3,12 +3,12 @@
 import { useNavigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
-import { toggleLogin } from "../store/loginSlice";
+import { logout } from "../store/loginSlice";
 
 const Navbar = () => {
   const isLogin = useSelector((state) => state.isLogin.value);
+  const admin = useSelector((state) => state.isLogin.admin);
   const dispatch = useDispatch();
-  const name = "محمدرضا";
   const navigate = useNavigate();
 
   return (
@@ -21,13 +21,13 @@ const Navbar = () => {
           </div>
           <div className="text-secondary w-0 sm:w-2/12 h-full sm:text-base px-5 py-2.5 text-center float-right cursor-none hidden sm:block ">
             {" "}
-            {name}{" "}
+            {`${admin.name}  ${admin.lname}  `}{" "}
           </div>
           <button
             type="button"
             className="text-secondary h-full w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg text-base px-5 py-2.5 text-center   float-right"
             onClick={() => {
-              dispatch(toggleLogin());
+              dispatch(logout());
               navigate("/");
             }}
           >
