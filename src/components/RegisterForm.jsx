@@ -16,7 +16,7 @@ const RegisterForm = () => {
     lname: "",
   };
   const reCaptchaRef = createRef();
-  const LoginSchema = Yup.object().shape({
+  const RegisterSchema = Yup.object().shape({
     name: Yup.string()
       .required("نام خود را وارد کنید")
       .min(3, "نام باید حداقل 3 حرف داشته باشد"),
@@ -33,6 +33,7 @@ const RegisterForm = () => {
 
   const submitForm = (values) => {
     reCaptchaRef.current.execute();
+    finalPropsSelectorFactory.onSubmit(values);
     console.log("Form Sub");
   };
   return (
@@ -40,7 +41,7 @@ const RegisterForm = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={submitForm}
-        validationSchema={LoginSchema}
+        validationSchema={RegisterSchema}
       >
         {(formik) => {
           const {
