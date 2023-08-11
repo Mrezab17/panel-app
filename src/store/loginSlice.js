@@ -4,14 +4,20 @@ export const loginSlice = createSlice({
   name: "isLogin",
   initialState: {
     value: false,
+    admin: null,
   },
   reducers: {
-    toggleLogin: (state) => {
-      state.value = !state.value;
+    login: (state, payload) => {
+      state.value = true;
+      state.admin = payload;
+    },
+    logout: (state) => {
+      state.value = false;
+      state.admin = null;
     },
   },
 });
 
-export const { toggleLogin } = loginSlice.actions;
+export const { logout, login } = loginSlice.actions;
 
 export default loginSlice.reducer;
