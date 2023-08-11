@@ -7,9 +7,9 @@ export const loginSlice = createSlice({
     admin: null,
   },
   reducers: {
-    login: (state, payload) => {
+    login: (state, action) => {
       state.value = true;
-      state.admin = payload;
+      state.admin = action.payload;
     },
     logout: (state) => {
       state.value = false;
