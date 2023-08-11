@@ -13,9 +13,14 @@ const LoginForm = (props) => {
     recaptcha: "",
   };
   const reCaptchaRef = createRef();
+
   const LoginSchema = Yup.object().shape({
-    username: Yup.string().required("نام کاربری را وارد کنید"),
-    password: Yup.string().required("رمز ورود را وارد کنید"),
+    username: Yup.string()
+      .required("نام کاربری را وارد کنید")
+      .min(3, "نام کاربری وارد شده معتبر نیست"),
+    password: Yup.string()
+      .required("رمز ورود را وارد کنید")
+      .min(4, "رمز عبور وارد شده معتبر نیست"),
   });
 
   const submitForm = (values) => {

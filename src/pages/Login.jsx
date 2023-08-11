@@ -2,31 +2,34 @@ import { useNavigate } from "react-router-dom";
 
 import LoginForm from "../components/LoginForm";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleLogin } from "../store/loginSlice";
+import { login } from "../store/loginSlice";
 
-const adminList = [];
 const Login = () => {
-  const isLogin = useSelector((state) => state.isLogin.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const users = useSelector((state) => state.users.item);
 
-  const formIsValid = (form) => {
-    for (let i = 0; i < adminList.length; i++) {
-      const element = adminList[i];
+  const findAdmin = (form) => {
+    //console.log("Function findAdmin");
+    //console.log("users : " + users);
+    for (let i = 0; i < users.length; i++) {
+      const element = users[i];
       if (
         element.username === form.username &&
-        element.password === form.password
+        element.password === form.password &&
+        element.isAdmin
       ) {
-        return true;
+        return users[i].id;
       }
     }
-    return false;
+    return -1;
   };
+
   const submitHandler = (form) => {
-    if (formIsValid(form)) {
-    }
-    if (true || formIsValid(form)) {
-      dispatch(toggleLogin());
+    const adminId = findAdmin(form);
+    if (adminId == -1) {
+    } else {
+      dispatch(login(users[adminId]));
       navigate("/");
     }
   };
