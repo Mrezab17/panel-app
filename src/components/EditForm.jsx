@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -7,7 +7,7 @@ const EditForm = (props) => {
   const initialValues = {
     username: props.user.username,
     password: props.user.password,
-    password2: props.user.password,
+    confirmPassword: props.user.password,
     email: props.user.email,
     name: props.user.name,
     lname: props.user.lname,
@@ -24,7 +24,11 @@ const EditForm = (props) => {
     password: Yup.string()
       .required("رمز ورود جدید را وارد کنید")
       .min(4, "رمز عبور حداقل 4 حرف داشته باشد"),
-    password2: Yup.string()
+    confirmPassword: Yup.string().when("password", (password, field) =>
+      password ? field.required().oneOf([Yup.ref("password")]) : field
+    ),
+
+    confirmPassword: Yup.string()
       .required("رمز ورود جدید را مجددا وارد کنید")
       .min(4, "رمز عبور حداقل 4 حرف داشته باشد"),
     email: Yup.string().email("ایمیل وارد شده معتبر نیست"),
@@ -32,6 +36,13 @@ const EditForm = (props) => {
 
   const submitForm = (values) => {
     console.log("Form Sub");
+    props.onEdit({
+      username: values.username,
+      password: values.password,
+      email: values.email,
+      name: values.name,
+      lname: values.lname,
+    });
   };
   return (
     <div className="h-full w-full sm:w-1/2 flex pt-36">
@@ -154,9 +165,9 @@ const EditForm = (props) => {
               <div className="w-full flex flex-row  h-10 justify-center">
                 <input
                   type="password"
-                  name="password2"
-                  id="password2"
-                  value={values.password2}
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  value={values.confirmPassword}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="رمز عبور جدید را وارد کنید"
@@ -164,9 +175,9 @@ const EditForm = (props) => {
                 />
               </div>
 
-              {errors.password2 && touched.password2 && (
+              {errors.confirmPassword && touched.confirmPassword && (
                 <div className="w-full flex flex-row h-6 justify-center text-red-600 text-sm">
-                  {errors.password2}
+                  {errors.confirmPassword}
                 </div>
               )}
 

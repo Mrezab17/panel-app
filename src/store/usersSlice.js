@@ -36,9 +36,19 @@ const usersSlice = createSlice({
       }
     },
     editUser: (state, action) => {
-      const id = action.payload.id;
+      const newUser = action.payload;
       state.items = state.items.map((item) => {
-        if (item.id == id) return action.payload;
+        if (item.id == newUser.id)
+          return {
+            username: newUser.username,
+            password: newUser.password,
+            confirmPassword: newUser.password,
+            email: newUser.email,
+            name: newUser.name,
+            lname: newUser.lname,
+            isAdmin: item.isAdmin,
+            id: item.id,
+          };
         return item;
       });
     },
