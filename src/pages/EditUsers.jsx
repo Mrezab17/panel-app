@@ -1,30 +1,33 @@
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import EditUserX from "../components/EditUserX";
 import NoUserFound from "../components/NoUserFound";
-import { useNavigate } from "react-router-dom";
 
 const EditUsers = () => {
   const navigate = useNavigate();
-  const list = [
-    {
-      id: 1,
-      name: "منوچهر ",
-      lname: "زارع",
-      username: "zare",
-      email: "test@example.com",
-    },
-    {
-      id: 2,
-      name: "شاهپور",
-      lname: "محمودیه",
-      username: "shah",
-      email: "omid.kadivar@example.net",
-    },
-  ];
+  const users = useSelector((state) => state.users.items);
+
+  // const list = [
+  //   {
+  //     id: 1,
+  //     name: "منوچهر ",
+  //     lname: "زارع",
+  //     username: "zare",
+  //     email: "test@example.com",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "شاهپور",
+  //     lname: "محمودیه",
+  //     username: "shah",
+  //     email: "omid.kadivar@example.net",
+  //   },
+  // ];
   const editHandler = (id) => {
-    console.log("Edit" + id);
     navigate(`/edituser/${id}`);
   };
-  return list.length == 0 ? (
+  return users.length == 0 ? (
     <NoUserFound />
   ) : (
     <>
@@ -43,7 +46,7 @@ const EditUsers = () => {
             ایمیل کاربر
           </div>
         </div>
-        {list.map((user) => (
+        {users.map((user) => (
           <EditUserX
             key={Math.random()}
             name={user.name}
