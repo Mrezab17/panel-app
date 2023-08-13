@@ -5,7 +5,7 @@ const baseUrl = "/users.json";
 export const fetchUsersData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const response = axios
+      const response = await axios
         .get(baseUrl)
         .then((res) => console.log(res.data))
         .catch((err) => console.log(err));
@@ -15,13 +15,14 @@ export const fetchUsersData = () => {
 
     try {
       const fetchedUsersList = await fetchData();
+      console.log("Fetched : " + fetchedUsersList);
       dispatch(
-        replaceCart({
-          items: usersList || [],
+        replaceUsers({
+          items: fetchedUsersList || [],
         })
       );
     } catch (error) {
-      console.log("Error Fetching at fetchUsersData");
+      console.log("Error Fetching at fetchUsersData" + error);
     }
   };
 };
