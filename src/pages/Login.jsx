@@ -7,29 +7,30 @@ import { login } from "../store/loginSlice";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const users = useSelector((state) => state.users.item);
+  const users = useSelector((state) => state.users.items);
 
   const findAdmin = (form) => {
     //console.log("Function findAdmin");
     //console.log("users : " + users);
     for (let i = 0; i < users.length; i++) {
       const element = users[i];
+      console.log("Element:" + element.username);
       if (
         element.username === form.username &&
         element.password === form.password &&
         element.isAdmin
       ) {
-        return users[i].id;
+        return users[i];
       }
     }
     return -1;
   };
 
   const submitHandler = (form) => {
-    const adminId = findAdmin(form);
-    if (adminId == -1) {
+    const admin = findAdmin(form);
+    if (admin == -1) {
     } else {
-      dispatch(login(users[adminId]));
+      dispatch(login(admin));
       navigate("/");
     }
   };

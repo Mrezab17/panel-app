@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import EditUserX from "../components/EditUserX";
-import NoUserFound from "../components/NoUserFound";
 
 const EditUsers = () => {
   const navigate = useNavigate();

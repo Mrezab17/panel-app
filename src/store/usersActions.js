@@ -7,7 +7,9 @@ export const fetchUsersData = () => {
     const fetchData = async () => {
       const response = await axios
         .get(baseUrl)
-        .then((res) => console.log(res.data))
+        .then((res) => {
+          return res.data;
+        })
         .catch((err) => console.log(err));
 
       return response;
@@ -15,7 +17,7 @@ export const fetchUsersData = () => {
 
     try {
       const fetchedUsersList = await fetchData();
-      console.log("Fetched : " + fetchedUsersList);
+      //console.log("Fetched : " + fetchedUsersList[0].name);  Completed
       dispatch(
         replaceUsers({
           items: fetchedUsersList || [],
