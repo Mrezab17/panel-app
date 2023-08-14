@@ -35,20 +35,21 @@ const usersSlice = createSlice({
       } else {
       }
     },
-    editUser: (state, action) => {
+    editUser(state, action) {
       const newUser = action.payload;
+      state.changed = true;
       state.items = state.items.map((item) => {
-        if (item.id == newUser.id)
+        if (item.id === newUser.id) {
           return {
-            username: newUser.username,
-            password: newUser.password,
-            confirmPassword: newUser.password,
-            email: newUser.email,
+            id: item.id,
             name: newUser.name,
             lname: newUser.lname,
+            username: newUser.username,
+            email: newUser.email,
+            password: newUser.password,
             isAdmin: item.isAdmin,
-            id: item.id,
           };
+        }
         return item;
       });
     },

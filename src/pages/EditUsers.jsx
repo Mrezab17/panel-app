@@ -23,12 +23,10 @@ const EditUsers = () => {
   //     email: "omid.kadivar@example.net",
   //   },
   // ];
-  const editHandler = (id) => {
-    navigate(`/edituser/${id}`);
+  const editHandler = (index) => {
+    navigate(`/edituser/${index}`);
   };
-  return users.length == 0 ? (
-    <NoUserFound />
-  ) : (
+  return (
     <>
       <div className="h-full w-full flex flex-col space-y-2 bg-primary justify-center items-center">
         <div className="w-full sm:w-3/4 flex flex-row h-12  rounded pt-0">
@@ -45,18 +43,21 @@ const EditUsers = () => {
             ایمیل کاربر
           </div>
         </div>
-        {users.map((user) => (
-          <EditUserX
-            key={Math.random()}
-            name={user.name}
-            lname={user.lname}
-            username={user.username}
-            email={user.email}
-            onEdit={() => {
-              editHandler(user.id);
-            }}
-          />
-        ))}
+        {users.map(
+          (user, index) =>
+            !user.isAdmin && (
+              <EditUserX
+                key={Math.random()}
+                name={user.name}
+                lname={user.lname}
+                username={user.username}
+                email={user.email}
+                onEdit={() => {
+                  editHandler(index);
+                }}
+              />
+            )
+        )}
       </div>
     </>
   );

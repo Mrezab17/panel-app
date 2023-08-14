@@ -17,7 +17,6 @@ export const fetchUsersData = () => {
 
     try {
       const fetchedUsersList = await fetchData();
-      //console.log("Fetched : " + fetchedUsersList[0].name);  Completed
       dispatch(
         replaceUsers({
           items: fetchedUsersList || [],
@@ -30,15 +29,20 @@ export const fetchUsersData = () => {
 };
 
 export const sendUsers = (users) => {
-  return async (dispatch) => {
+  return async (dispatch, usersList) => {
     const sendRequest = async () => {
-      axios.post(baseUrl, { users, items });
+      const response = await axios.post(baseUrl, usersList).then((response) => {
+        if (!response.ok) {
+          throw new Error("Sending users data failed.");
+        }
+      });
     };
 
     try {
-      await sendRequest();
+      const usersList = users.items;
+      await sendRequest(usersList);
     } catch (error) {
-      console.log("Error sending at fetchUsersData");
+      console.log("Error sending at fetchUsersData : \n" + error);
     }
   };
 };

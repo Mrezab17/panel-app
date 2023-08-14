@@ -28,14 +28,10 @@ const EditForm = (props) => {
       password ? field.required().oneOf([Yup.ref("password")]) : field
     ),
 
-    confirmPassword: Yup.string()
-      .required("رمز ورود جدید را مجددا وارد کنید")
-      .min(4, "رمز عبور حداقل 4 حرف داشته باشد"),
     email: Yup.string().email("ایمیل وارد شده معتبر نیست"),
   });
 
   const submitForm = (values) => {
-    console.log("Form Sub");
     props.onEdit({
       username: values.username,
       password: values.password,
@@ -184,12 +180,12 @@ const EditForm = (props) => {
               <div className="w-full flex flex-row h-10 justify-center bg-primary"></div>
 
               <div className="w-full flex flex-row h-20 justify-center pt-0">
-                <div
-                  onClick={dirty && isValid ? submitForm : () => {}}
-                  class="h-10 w-6/12 border-2 flex justify-center items-center border-green-600 rounded-lg px-3 py-2 text-green-400 cursor-pointer hover:bg-green-600 hover:text-green-200 transition-all duration-500"
-                >
-                  ثبت تغییرات
-                </div>
+                <input
+                  type="submit"
+                  disabled={!(dirty && isValid)}
+                  className="h-10 w-6/12 border-2 text-center bg-transparent border-green-600 rounded-lg px-3 py-2 text-green-400 cursor-pointer hover:bg-green-600 hover:text-green-200 transition-all duration-500"
+                  value={"ثبت تغییرات"}
+                ></input>
               </div>
             </form>
           );
