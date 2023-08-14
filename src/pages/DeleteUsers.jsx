@@ -30,17 +30,20 @@ const DeleteUsers = () => {
         <div className="text-4xl text-secondary flex items-center justify-center mb-3">
           لیست کاربران
         </div>
-        {users.map((user) => (
-          <DeleteUserX
-            key={Math.random()}
-            name={user.name}
-            lname={user.lname}
-            username={user.username}
-            onDelete={() => {
-              deleteHandler(user.id);
-            }}
-          />
-        ))}
+        {users.map(
+          (user) =>
+            !user.isAdmin && (
+              <DeleteUserX
+                key={Math.random()}
+                name={user.name}
+                lname={user.lname}
+                username={user.username}
+                onDelete={() => {
+                  deleteHandler(user.id);
+                }}
+              />
+            )
+        )}
       </div>
     </>
   );
