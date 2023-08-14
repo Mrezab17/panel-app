@@ -44,8 +44,6 @@ const EditUser = () => {
         lname: newInfo.lname,
         username: newInfo.username,
         email: newInfo.email,
-        password: newInfo.password,
-        isAdmin: false,
       })
     );
     navigate("/editusers");

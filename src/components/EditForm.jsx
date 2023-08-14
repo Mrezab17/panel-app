@@ -6,8 +6,6 @@ import * as Yup from "yup";
 const EditForm = (props) => {
   const initialValues = {
     username: props.user.username,
-    password: props.user.password,
-    confirmPassword: props.user.password,
     email: props.user.email,
     name: props.user.name,
     lname: props.user.lname,
@@ -21,12 +19,6 @@ const EditForm = (props) => {
       .required("وارد کردن نام خانوادگی الزامیست")
       .min(4, "نام خانوادگی باید حداقل 4 حرف داشته باشد"),
     username: Yup.string().required("وارد کردن نام کاربری الزامیست"),
-    password: Yup.string()
-      .required("رمز ورود جدید را وارد کنید")
-      .min(4, "رمز عبور حداقل 4 حرف داشته باشد"),
-    confirmPassword: Yup.string().when("password", (password, field) =>
-      password ? field.required().oneOf([Yup.ref("password")]) : field
-    ),
 
     email: Yup.string().email("ایمیل وارد شده معتبر نیست"),
   });
@@ -34,7 +26,6 @@ const EditForm = (props) => {
   const submitForm = (values) => {
     props.onEdit({
       username: values.username,
-      password: values.password,
       email: values.email,
       name: values.name,
       lname: values.lname,
@@ -136,44 +127,6 @@ const EditForm = (props) => {
               {errors.email && touched.email && (
                 <div className="w-full flex flex-row h-6 justify-center text-red-600 text-sm">
                   {errors.email}
-                </div>
-              )}
-
-              <div className="w-full flex flex-row  h-10 justify-center">
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  value={values.password}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="رمز عبور جدید را وارد کنید"
-                  className={`bg-white basis-5/12 pl-3 rounded `}
-                />
-              </div>
-
-              {errors.password && touched.password && (
-                <div className="w-full flex flex-row h-6 justify-center text-red-600 text-sm">
-                  {errors.password}
-                </div>
-              )}
-
-              <div className="w-full flex flex-row  h-10 justify-center">
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  id="confirmPassword"
-                  value={values.confirmPassword}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder="رمز عبور جدید را وارد کنید"
-                  className={`bg-white basis-5/12 pl-3 rounded `}
-                />
-              </div>
-
-              {errors.confirmPassword && touched.confirmPassword && (
-                <div className="w-full flex flex-row h-6 justify-center text-red-600 text-sm">
-                  {errors.confirmPassword}
                 </div>
               )}
 

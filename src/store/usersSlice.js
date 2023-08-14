@@ -46,7 +46,7 @@ const usersSlice = createSlice({
             lname: newUser.lname,
             username: newUser.username,
             email: newUser.email,
-            password: newUser.password,
+            password: item.password,
             isAdmin: item.isAdmin,
           };
         }
