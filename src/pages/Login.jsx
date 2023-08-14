@@ -10,11 +10,8 @@ const Login = () => {
   const users = useSelector((state) => state.users.items);
 
   const findAdmin = (form) => {
-    //console.log("Function findAdmin");
-    //console.log("users : " + users);
     for (let i = 0; i < users.length; i++) {
       const element = users[i];
-      console.log("Element:" + element.username);
       if (
         element.username === form.username &&
         element.password === form.password &&

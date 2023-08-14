@@ -105,13 +105,13 @@ const LoginForm = (props) => {
                 />
               </div>
 
-              <div className="w-full flex flex-row row-span-1 h-10 justify-center">
+              <div className="w-full flex flex-row h-20 justify-center pt-0">
                 <input
                   type="submit"
-                  className="bg-green-500 basis-2/12 rounded-md cursor-pointer hover:bg-green-700 hover:basis-3/12"
                   disabled={props.isSubmitting}
-                  value={"وارد شو"}
-                />
+                  className="h-10 w-6/12 border-2 text-center bg-transparent border-green-600 rounded-lg px-3 py-2 text-green-800 cursor-pointer hover:bg-green-600 hover:text-green-200 transition-all duration-500"
+                  value={"ورود"}
+                ></input>
               </div>
             </form>
           );
