@@ -12,11 +12,12 @@ import loginReducer from "./loginSlice";
 import usersReducer from "./usersSlice";
 
 const persistedLoginReducer = persistReducer(persistConfig, loginReducer);
+const persistedUsersReducer = persistReducer(persistConfig, usersReducer);
 
 const store = configureStore({
   reducer: {
     isLogin: persistedLoginReducer,
-    users: usersReducer,
+    users: persistedUsersReducer,
   },
   devTools: process.env.NODE_ENV !== "production",
   middleware: [thunk],

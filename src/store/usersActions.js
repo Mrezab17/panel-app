@@ -1,4 +1,5 @@
-import { replaceUsers } from "./usersSlice";
+import { replaceUsers, setFetched, getIsFetched } from "./usersSlice";
+
 import axios from "axios";
 const baseUrl = "/users.json";
 
@@ -14,7 +15,6 @@ export const fetchUsersData = () => {
 
       return response;
     };
-
     try {
       const fetchedUsersList = await fetchData();
       dispatch(
@@ -22,6 +22,7 @@ export const fetchUsersData = () => {
           items: fetchedUsersList || [],
         })
       );
+      dispatch(setFetched());
     } catch (error) {
       console.log("Error Fetching at fetchUsersData" + error);
     }

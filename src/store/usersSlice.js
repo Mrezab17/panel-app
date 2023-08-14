@@ -4,16 +4,18 @@ const usersSlice = createSlice({
   name: "users",
   initialState: {
     items: [],
-    changed: false,
+    isFetched: false,
   },
   reducers: {
+    setFetched(state) {
+      state.isFetched = true;
+    },
     replaceUsers(state, action) {
       state.items = action.payload.items;
     },
     addUser(state, action) {
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
-      state.changed = true;
       if (!existingItem) {
         state.items.push({
           id: newItem.id,
@@ -29,7 +31,6 @@ const usersSlice = createSlice({
     removeUser(state, action) {
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
-      state.changed = true;
       if (existingItem) {
         state.items = state.items.filter((item) => item.id !== id);
       } else {
@@ -37,7 +38,6 @@ const usersSlice = createSlice({
     },
     editUser(state, action) {
       const newUser = action.payload;
-      state.changed = true;
       state.items = state.items.map((item) => {
         if (item.id === newUser.id) {
           return {
@@ -56,7 +56,8 @@ const usersSlice = createSlice({
   },
 });
 
-export const { addUser, editUser, removeUser, replaceUsers } =
+export const { addUser, editUser, removeUser, replaceUsers, setFetched } =
   usersSlice.actions;
 
+export const getIsFetched = (state) => state.users.isFetched;
 export default usersSlice.reducer;

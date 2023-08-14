@@ -17,20 +17,15 @@ const EditUsers = lazy(() => import("../pages/EditUsers"));
 const EditUser = lazy(() => import("../pages/EditUser"));
 
 const Content = () => {
-  const isLogin = useSelector((state) => state.isLogin.value);
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users);
+
+  const isLogin = useSelector((state) => state.isLogin.value);
+  const isFetched = useSelector((state) => state.users.isFetched);
 
   //runs only Once
   useEffect(() => {
-    dispatch(fetchUsersData());
+    if (!isFetched) dispatch(fetchUsersData());
   }, [dispatch]);
-  //every time users Change posts new users
-  useEffect(() => {
-    if (users.changed) {
-      dispatch(sendUsers(users));
-    }
-  }, [users, dispatch]);
 
   return (
     <Suspense fallback={<Loading />}>
