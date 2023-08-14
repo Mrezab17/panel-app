@@ -6,7 +6,7 @@ import * as Yup from "yup";
 
 const TEST_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
 
-const RegisterForm = () => {
+const RegisterForm = (props) => {
   const initialValues = {
     username: "",
     password: "",
@@ -28,13 +28,10 @@ const RegisterForm = () => {
       .required("رمز ورود را وارد کنید")
       .min(4, "رمز عبور حداقل 4 حرف داشته باشد"),
     email: Yup.string().email("ایمیل وارد شده معتبر نیست"),
-    recaptcha: Yup.string().required("عدد مقابل را وارد کنید"),
   });
 
   const submitForm = (values) => {
-    reCaptchaRef.current.execute();
-    finalPropsSelectorFactory.onSubmit(values);
-    console.log("Form Sub");
+    props.onSubmit(values);
   };
   return (
     <div className="h-full w-full sm:w-1/2 bg-white flex flex-column pt-36 justify-center">
@@ -131,16 +128,16 @@ const RegisterForm = () => {
               <div className="w-full flex flex-row row-span-1 h-10 justify-center">
                 {errors.email && touched.email && (
                   <div className=" w-5/12 pl-3 text-red-600 float-left inline-block">
-                    {errors.password}
+                    {errors.email}
                   </div>
                 )}
               </div>
               <div className="w-full flex flex-row row-span-1 h-10 justify-center">
                 <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  value={values.email}
+                  type="password"
+                  name="password"
+                  id="password"
+                  value={values.password}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="رمز عبور خود را وارد کنید"
@@ -149,10 +146,12 @@ const RegisterForm = () => {
               </div>
               <div className="w-full flex flex-row row-span-1 h-20 justify-center">
                 <ReCAPTCHA
-                  className=" basis-5/12 pl-3 rounded"
-                  sitekey="6Le2nREUAAAAALYuOv7X9Fe3ysDmOmghtj0dbCKW"
-                  render="explicit"
-                  theme="light"
+                  ref={reCaptchaRef}
+                  sitekey={TEST_SITE_KEY}
+                  onChange={(value) => {
+                    props.setFieldValue("recaptcha", value);
+                    props.setSubmitting(false);
+                  }}
                 />
               </div>
               <div className="w-full flex flex-row row-span-1 h-10 justify-center">
@@ -162,13 +161,14 @@ const RegisterForm = () => {
                   </div>
                 )}
               </div>
-              <div className="w-full flex flex-row row-span-1 h-10 justify-center">
+
+              <div className="w-full flex flex-row h-20 justify-center pt-0">
                 <input
                   type="submit"
-                  className="bg-green-500 basis-2/12 rounded-md cursor-pointer hover:bg-green-700 hover:basis-3/12"
-                  disabled={!(dirty && isValid)}
+                  disabled={props.isSubmitting}
+                  className="h-10 w-6/12 border-2 text-center text-green-800 bg-transparent border-green-600 rounded-lg px-3 py-2  cursor-pointer hover:bg-green-600 hover:text-green-200 transition-all duration-500"
                   value={"ثبت نام"}
-                />
+                ></input>
               </div>
             </form>
           );

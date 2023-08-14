@@ -2,11 +2,14 @@ import RegisterForm from "../components/RegisterForm";
 
 import { useDispatch } from "react-redux";
 import { addUser } from "../store/usersSlice";
+import { useNavigate } from "react-router";
 
 const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const submitHandler = (newUser) => {
     dispatch(addUser({ ...newUser, id: Math.random, isAdmin: false }));
+    navigate("login");
   };
   return (
     <>
