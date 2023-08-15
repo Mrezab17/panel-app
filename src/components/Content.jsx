@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsersData, sendUsers } from "../store/usersActions";
+import { fetchUsersData } from "../store/usersActions";
 
 import Navbar from "./Navbar";
 import Loading from "./Loading";
@@ -22,40 +22,40 @@ const Content = () => {
   const isLogin = useSelector((state) => state.isLogin.value);
   const isFetched = useSelector((state) => state.users.isFetched);
 
-  //runs only Once
   useEffect(() => {
     if (!isFetched) dispatch(fetchUsersData());
-  }, [dispatch]);
+  }, [dispatch, isFetched]);
 
   return (
     <Suspense fallback={<Loading />}>
       <BrowserRouter>
         <div className="w-screen h-screen bg-secondary ">
           <Navbar />
-          {!isLogin ? (
-            <Routes>
-              <Route
-                exact
-                path="/"
-                element={<Navigate to="/login" replace />}
-              />
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/register" element={<Register />} />
-              <Route path="/*" element={<ErrorPage error={404} />} />
-            </Routes>
-          ) : (
-            <Routes>
-              <Route
-                exact
-                path="/"
-                element={<Navigate to="/editusers" replace />}
-              />
-              <Route exact path="/deleteusers" element={<DeleteUsers />} />
-              <Route exact path="/editusers" element={<EditUsers />} />
-              <Route exact path="/edituser/:id" element={<EditUser />} />
-              <Route path="/*" element={<ErrorPage error={404} />} />
-            </Routes>
-          )}
+          <Routes>
+            {!isLogin ? (
+              <>
+                <Route
+                  exact
+                  path="/"
+                  element={<Navigate to="/login" replace />}
+                />
+                <Route exact path="/login" element={<Login />} />
+                <Route exact path="/register" element={<Register />} />
+              </>
+            ) : (
+              <>
+                <Route
+                  exact
+                  path="/"
+                  element={<Navigate to="/editusers" replace />}
+                />
+                <Route exact path="/deleteusers" element={<DeleteUsers />} />
+                <Route exact path="/editusers" element={<EditUsers />} />
+                <Route exact path="/edituser/:id" element={<EditUser />} />
+              </>
+            )}
+            <Route path="/*" element={<ErrorPage error={404} />} />
+          </Routes>
         </div>
       </BrowserRouter>
     </Suspense>
