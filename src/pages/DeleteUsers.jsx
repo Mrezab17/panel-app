@@ -34,7 +34,7 @@ const DeleteUsers = () => {
           (user) =>
             !user.isAdmin && (
               <DeleteUserX
-                key={Math.random()}
+                key={user.id}
                 name={user.name}
                 lname={user.lname}
                 username={user.username}

@@ -47,7 +47,7 @@ const EditUsers = () => {
           (user, index) =>
             !user.isAdmin && (
               <EditUserX
-                key={Math.random()}
+                key={user.id}
                 name={user.name}
                 lname={user.lname}
                 username={user.username}
