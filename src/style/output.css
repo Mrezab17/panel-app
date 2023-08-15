@@ -2639,6 +2639,10 @@ input:checked + .toggle-bg {
   background-size: cover;
 }
 
+.bg-auto {
+  background-size: auto;
+}
+
 .bg-center {
   background-position: center;
 }
@@ -5152,6 +5156,39 @@ input:checked + .toggle-bg {
 
   .sm\:w-6 {
     width: 1.5rem;
+  }
+
+  .sm\:bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+
+  .sm\:bg-login {
+    background-image: url('./src/assets/Login.jpg');
+  }
+
+  .sm\:bg-register {
+    background-image: url('./src/assets/Register.jpg');
+  }
+
+  .sm\:bg-cover {
+    background-size: cover;
+  }
+
+  .sm\:bg-auto {
+    background-size: auto;
+  }
+
+  .sm\:bg-contain {
+    background-size: contain;
+  }
+
+  .sm\:bg-center {
+    background-position: center;
+  }
+
+  .sm\:bg-no-repeat {
+    background-repeat: no-repeat;
   }
 
   .sm\:px-4 {

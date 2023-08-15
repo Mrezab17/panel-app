@@ -15,11 +15,11 @@ const Navbar = () => {
     <div className="w-screen h-16 sm:h-20 bg-primary py-3 space-x-5 fixed ">
       {(isLogin && (
         <>
-          <div className="text-secondary h-full w-2/12 text-sm sm:text-lg px-2 py-2.5 text-center  float-left cursor-none">
+          <div className="text-secondary h-full w-2/12 text-sm sm:text-lg px-2 py-2.5 text-center  float-left ">
             {""}
             پنل مدیریت {""}
           </div>
-          <div className="text-secondary w-0 sm:w-2/12 h-full sm:text-lg px-5 py-2.5 text-center float-right cursor-none hidden sm:block ">
+          <div className="text-secondary w-0 sm:w-2/12 h-full sm:text-lg px-5 py-2.5 text-center float-right  hidden sm:block ">
             {" "}
             {`${admin.name}  ${admin.lname}  `}{" "}
           </div>
