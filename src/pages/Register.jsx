@@ -15,7 +15,7 @@ const Register = () => {
     <>
       <div className="h-full w-full flex bg-red-400">
         <RegisterForm onSubmit={submitHandler} />
-        <div className="h-full w-1/2 hidden sm:flex sm:w-1/2  bg-register bg-cover bg-center px-10"></div>
+        <div className=" h-full w-1/2 hidden sm:flex sm:w-1/2  sm:bg-register sm:bg-contain sm:bg-no-repeat sm:bg-white sm:bg-center px-10"></div>
       </div>
     </>
   );

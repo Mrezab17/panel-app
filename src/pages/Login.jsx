@@ -20,13 +20,12 @@ const Login = () => {
         return users[i];
       }
     }
-    return -1;
+    return null;
   };
 
   const submitHandler = (form) => {
     const admin = findAdmin(form);
-    if (admin == -1) {
-    } else {
+    if (admin) {
       dispatch(login(admin));
       navigate("/");
     }
@@ -35,7 +34,7 @@ const Login = () => {
     <>
       <div className="h-full w-full flex">
         <LoginForm submitHandler={submitHandler} />
-        <div className="h-full w-1/2 hidden sm:flex sm:w-1/2  bg-login bg-cover bg-center px-10"></div>
+        <div className=" h-full w-1/2 hidden sm:flex sm:w-1/2  sm:bg-login sm:bg-contain sm:bg-no-repeat sm:bg-white sm:bg-center px-10"></div>
       </div>
     </>
   );
