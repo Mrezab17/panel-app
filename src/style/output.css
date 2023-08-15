@@ -1625,10 +1625,6 @@ input:checked + .toggle-bg {
   flex-shrink: 0;
 }
 
-.basis-2\/12 {
-  flex-basis: 16.666667%;
-}
-
 .basis-5\/12 {
   flex-basis: 41.666667%;
 }
@@ -3495,10 +3491,6 @@ input:checked + .toggle-bg {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
-.hover\:basis-3\/12:hover {
-  flex-basis: 25%;
-}
-
 .hover\:cursor-not-allowed:hover {
   cursor: not-allowed;
 }
@@ -3546,11 +3538,6 @@ input:checked + .toggle-bg {
 .hover\:bg-green-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(5 122 85 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-green-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(4 108 78 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-indigo-200:hover {
@@ -5193,6 +5180,11 @@ input:checked + .toggle-bg {
   .sm\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .sm\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 
