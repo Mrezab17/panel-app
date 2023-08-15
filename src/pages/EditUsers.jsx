@@ -7,22 +7,6 @@ const EditUsers = () => {
   const navigate = useNavigate();
   const users = useSelector((state) => state.users.items);
 
-  // const list = [
-  //   {
-  //     id: 1,
-  //     name: "منوچهر ",
-  //     lname: "زارع",
-  //     username: "zare",
-  //     email: "test@example.com",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "شاهپور",
-  //     lname: "محمودیه",
-  //     username: "shah",
-  //     email: "omid.kadivar@example.net",
-  //   },
-  // ];
   const editHandler = (index) => {
     navigate(`/edituser/${index}`);
   };

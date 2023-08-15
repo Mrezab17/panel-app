@@ -9,34 +9,7 @@ const EditUser = () => {
   const user = users[id];
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  // const list = [
-  //   {
-  //     id: 1,
-  //     name: "منوچهر ",
-  //     lname: "زارع",
-  //     username: "zare",
-  //     email: "test@example.com",
-  //     password: "123321",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "شاهپور",
-  //     lname: "محمودیه",
-  //     username: "shah",
-  //     email: "omid.kadivar@example.net",
-  //   },
-  // ];
   const editHandler = (newInfo) => {
-    //   {
-    //   "id": 1,
-    //   "name": "منوچهر ",
-    //   "lname": "زارع",
-    //   "username": "zare",
-    //   "email": "test@example.com",
-    //   "password": "123321",
-    //   "isAdmin": false
-    // }
     dispatch(
       editUser({
         id: users[id].id,
