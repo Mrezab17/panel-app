@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const usersSlice = createSlice({
   name: "users",
@@ -14,17 +14,17 @@ const usersSlice = createSlice({
       state.items = action.payload.items;
     },
     addUser(state, action) {
-      const newItem = action.payload;
+      const newItem = action.payload.newUser;
       const existingItem = state.items.find((item) => item.id === newItem.id);
       if (!existingItem) {
         state.items.push({
-          id: newItem.id,
+          id: nanoid(),
           name: newItem.name,
           lname: newItem.lname,
           username: newItem.username,
           email: newItem.email,
           password: newItem.password,
-          isAdmin: newItem.isAdmin,
+          isAdmin: false,
         });
       }
     },
@@ -33,7 +33,6 @@ const usersSlice = createSlice({
       const existingItem = state.items.find((item) => item.id === id);
       if (existingItem) {
         state.items = state.items.filter((item) => item.id !== id);
-      } else {
       }
     },
     editUser(state, action) {

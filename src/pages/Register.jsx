@@ -8,8 +8,8 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const submitHandler = (newUser) => {
-    dispatch(addUser({ ...newUser, id: Math.random, isAdmin: false }));
-    navigate("login");
+    dispatch(addUser({ newUser }));
+    navigate("/login");
   };
   return (
     <>

@@ -10,15 +10,13 @@ const Login = () => {
   const users = useSelector((state) => state.users.items);
 
   const findAdmin = (form) => {
-    let admin;
+    let admin = null;
     users.forEach((user) => {
-      console.log(user);
       if (
         user.username === form.username &&
         user.password === form.password &&
         user.isAdmin
       ) {
-        console.log("Element:" + user.name);
         admin = user;
       }
     });
@@ -28,7 +26,6 @@ const Login = () => {
 
   const submitHandler = (form) => {
     const admin = findAdmin(form);
-    console.log(admin);
     if (admin) {
       dispatch(login(admin));
       navigate("/");
