@@ -34,26 +34,6 @@ const Navbar = () => {
             {" "}
             خروج{" "}
           </button>
-          <button
-            type="button"
-            className="text-secondary h-full  w-3/12 sm:w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg text-xs sm:text-lg  px-5 py-2.5 text-center  float-right"
-            onClick={() => {
-              navigate("/editusers");
-            }}
-          >
-            {" "}
-            ویرایش کاربران{" "}
-          </button>
-          <button
-            type="button"
-            className="text-secondary h-full w-3/12 sm:w-2/12 bg-gradient-to-r from-primary to-tertiary hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-primary  rounded-lg test-xs sm:text-lg  px-5 py-2.5 text-center mx-2  float-right"
-            onClick={() => {
-              navigate("/deleteusers");
-            }}
-          >
-            {" "}
-            حذف کاربران{" "}
-          </button>
         </>
       )) ||
         (!isLogin && (

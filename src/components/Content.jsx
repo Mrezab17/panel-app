@@ -12,7 +12,6 @@ import { useEffect } from "react";
 const Login = lazy(() => import("../pages/Login"));
 const Register = lazy(() => import("../pages/Register"));
 const ErrorPage = lazy(() => import("../pages/ErrorPage"));
-const DeleteUsers = lazy(() => import("../pages/DeleteUsers"));
 const EditUsers = lazy(() => import("../pages/EditUsers"));
 const EditUser = lazy(() => import("../pages/EditUser"));
 
@@ -49,7 +48,6 @@ const Content = () => {
                   path="/"
                   element={<Navigate to="/editusers" replace />}
                 />
-                <Route exact path="/deleteusers" element={<DeleteUsers />} />
                 <Route exact path="/editusers" element={<EditUsers />} />
                 <Route exact path="/edituser/:id" element={<EditUser />} />
               </>

@@ -1508,10 +1508,6 @@ input:checked + .toggle-bg {
   width: 0.875rem;
 }
 
-.w-3\/12 {
-  width: 25%;
-}
-
 .w-3\/4 {
   width: 75%;
 }
@@ -1665,10 +1661,6 @@ input:checked + .toggle-bg {
 
 .cursor-grab {
   cursor: grab;
-}
-
-.cursor-none {
-  cursor: none;
 }
 
 .cursor-not-allowed {
@@ -2331,7 +2323,7 @@ input:checked + .toggle-bg {
 
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(13 27 42 / var(--tw-bg-opacity));
+  background-color: rgb(37 36 34 / var(--tw-bg-opacity));
 }
 
 .bg-purple-100 {
@@ -2381,7 +2373,7 @@ input:checked + .toggle-bg {
 
 .bg-secondary {
   --tw-bg-opacity: 1;
-  background-color: rgb(224 225 221 / var(--tw-bg-opacity));
+  background-color: rgb(204 197 185 / var(--tw-bg-opacity));
 }
 
 .bg-teal-100 {
@@ -2396,7 +2388,7 @@ input:checked + .toggle-bg {
 
 .bg-tertiary {
   --tw-bg-opacity: 1;
-  background-color: rgb(119 141 169 / var(--tw-bg-opacity));
+  background-color: rgb(235 94 40 / var(--tw-bg-opacity));
 }
 
 .bg-transparent {
@@ -2448,14 +2440,6 @@ input:checked + .toggle-bg {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
-.bg-login {
-  background-image: url('./src/assets/Login.jpg');
-}
-
-.bg-register {
-  background-image: url('./src/assets/Register.jpg');
-}
-
 .from-cyan-400 {
   --tw-gradient-from: #22d3ee var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(34 211 238 / 0) var(--tw-gradient-to-position);
@@ -2493,8 +2477,8 @@ input:checked + .toggle-bg {
 }
 
 .from-primary {
-  --tw-gradient-from: #0d1b2a var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(13 27 42 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-from: #252422 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(37 36 34 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -2628,23 +2612,11 @@ input:checked + .toggle-bg {
 }
 
 .to-tertiary {
-  --tw-gradient-to: #778da9 var(--tw-gradient-to-position);
+  --tw-gradient-to: #eb5e28 var(--tw-gradient-to-position);
 }
 
 .to-yellow-200 {
   --tw-gradient-to: #FCE96A var(--tw-gradient-to-position);
-}
-
-.bg-cover {
-  background-size: cover;
-}
-
-.bg-auto {
-  background-size: auto;
-}
-
-.bg-center {
-  background-position: center;
 }
 
 .fill-current {
@@ -3120,7 +3092,7 @@ input:checked + .toggle-bg {
 
 .text-primary {
   --tw-text-opacity: 1;
-  color: rgb(13 27 42 / var(--tw-text-opacity));
+  color: rgb(37 36 34 / var(--tw-text-opacity));
 }
 
 .text-purple-500 {
@@ -3165,7 +3137,7 @@ input:checked + .toggle-bg {
 
 .text-secondary {
   --tw-text-opacity: 1;
-  color: rgb(224 225 221 / var(--tw-text-opacity));
+  color: rgb(204 197 185 / var(--tw-text-opacity));
 }
 
 .text-teal-500 {
@@ -3186,11 +3158,6 @@ input:checked + .toggle-bg {
 .text-teal-900 {
   --tw-text-opacity: 1;
   color: rgb(1 68 81 / var(--tw-text-opacity));
-}
-
-.text-tertiary {
-  --tw-text-opacity: 1;
-  color: rgb(119 141 169 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -3221,6 +3188,16 @@ input:checked + .toggle-bg {
 .text-yellow-900 {
   --tw-text-opacity: 1;
   color: rgb(99 49 18 / var(--tw-text-opacity));
+}
+
+.text-pink-600 {
+  --tw-text-opacity: 1;
+  color: rgb(214 31 105 / var(--tw-text-opacity));
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -4849,7 +4826,7 @@ input:checked + .toggle-bg {
 
 :is(.dark .dark\:focus\:ring-primary:focus) {
   --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(13 27 42 / var(--tw-ring-opacity));
+  --tw-ring-color: rgb(37 36 34 / var(--tw-ring-opacity));
 }
 
 :is(.dark .dark\:focus\:ring-purple-800:focus) {
@@ -5171,14 +5148,6 @@ input:checked + .toggle-bg {
     background-image: url('./src/assets/Register.jpg');
   }
 
-  .sm\:bg-cover {
-    background-size: cover;
-  }
-
-  .sm\:bg-auto {
-    background-size: auto;
-  }
-
   .sm\:bg-contain {
     background-size: contain;
   }
@@ -5209,19 +5178,14 @@ input:checked + .toggle-bg {
     text-align: center;
   }
 
-  .sm\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
+  .sm\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 
   .sm\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
-  }
-
-  .sm\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 }
 

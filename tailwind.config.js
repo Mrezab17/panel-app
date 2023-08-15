@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: { primary: "#0d1b2a", secondary: "#e0e1dd", tertiary: "#778da9" },
+      colors: { primary: "#252422", secondary: "#ccc5b9", tertiary: "#eb5e28" },
       backgroundImage: {
         login: "url('./src/assets/Login.jpg')",
         register: "url('./src/assets/Register.jpg')",
